@@ -1,0 +1,11 @@
+{
+  "FolderOrderSettings":[
+    {"name":"objects","order":5,"path":"folders/objects.yy",},
+    {"name":"rooms","order":4,"path":"folders/rooms.yy",},
+    {"name":"scripts","order":3,"path":"folders/scripts.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"scr_main","order":2,"path":"scripts/scr_main/scr_main.yy",},
+    {"name":"scr_util","order":1,"path":"scripts/scr_util/scr_util.yy",},
+  ],
+}
