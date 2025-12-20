@@ -15,7 +15,7 @@ function set_data() {
 }
 
 function thing_data(_name, _dat) {
-	var _defdat = new default_card();
+	var _defdat = new default_thing();
 	var _newdat = struct_merge(_defdat, _dat);
 	variable_struct_set(data.things, _name, _newdat);
 }
