@@ -79,6 +79,13 @@ function array_mean(_array) {
 	return _mean;
 }
 
+function percent_chance(_perc) {
+	_perc = clamp(_perc, 0, 100);
+	var _rand = random(100);
+	var _hit = (_perc > _rand);
+	return _hit;
+}
+
 function bind_get_str(_bind) {
 	var _str = "";
 	if (!ss.controller) {

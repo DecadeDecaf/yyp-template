@@ -23,11 +23,7 @@ function create_globals() {
 	
 	#macro colors g.g_cols
 	
-	g.floors = 0;
-	g.hearts = 3;
-	g.gold = 100;
-
-	g.deck = [];
+	// global variables
 	
 	g.second_controller = false;
 	
@@ -64,16 +60,16 @@ function create_savefile() {
 		right: vk_right,
 		up: vk_up,
 		down: vk_down,
-		interact: ord("Z"),
-		back: ord("X")
+		a: ord("Z"),
+		b: ord("X")
 	};
 	ss.gp_controls = {
 		left: gp_stickl_l,
 		right: gp_stickl_r,
 		up: gp_stickl_u,
 		down: gp_stickl_d,
-		interact: gp_face1,
-		back: gp_face2
+		a: gp_face1,
+		b: gp_face2
 	};
 }
 
@@ -180,6 +176,7 @@ function controls_check(_control, _protocol = "p1") {
 	var _kb_check = keyboard_check(_control_kb);
 	var _gp1_check = false;
 	var _gp2_check = false;
+	
 	if (_control_gp > gp_padr) {
 		var _control_gp_off = (_control_gp - gp_padr - 1);
 		_gp1_check = g.gp_press[@ 0][@ _control_gp_off];
@@ -188,9 +185,11 @@ function controls_check(_control, _protocol = "p1") {
 		_gp1_check = gamepad_button_check(0, _control_gp);
 		_gp2_check = gamepad_button_check(1, _control_gp);
 	}
+	
 	if (_protocol == "any") { return (_kb_check || _gp1_check); }
 	if (_protocol == "p2") { return (ss.controller ? (!g.second_controller ? _kb_check : _gp2_check) : _gp1_check); }
 	if (_protocol == "not p1") { return (ss.controller ? (_kb_check || _gp2_check) : _gp1_check); }
+	
 	return (!ss.controller ? _kb_check : _gp1_check);
 }
 
@@ -200,6 +199,7 @@ function controls_check_pressed(_control, _protocol = "p1") {
 	var _kb_check = keyboard_check_pressed(_control_kb);
 	var _gp1_check = false;
 	var _gp2_check = false;
+	
 	if (_control_gp > gp_padr) {
 		var _control_gp_off = (_control_gp - gp_padr - 1);
 		_gp1_check = g.gp_pressed[@ 0][@ _control_gp_off];
@@ -208,9 +208,11 @@ function controls_check_pressed(_control, _protocol = "p1") {
 		_gp1_check = gamepad_button_check_pressed(0, _control_gp);
 		_gp2_check = gamepad_button_check_pressed(1, _control_gp);
 	}
+	
 	if (_protocol == "any") { return (_kb_check || _gp1_check); }
 	if (_protocol == "p2") { return (ss.controller ? (!g.second_controller ? _kb_check : _gp2_check) : _gp1_check); }
 	if (_protocol == "not p1") { return (ss.controller ? (_kb_check || _gp2_check) : _gp1_check); }
+	
 	return (!ss.controller ? _kb_check : _gp1_check);
 }
 
@@ -220,6 +222,7 @@ function controls_check_released(_control, _protocol = "p1") {
 	var _kb_check = keyboard_check_released(_control_kb);
 	var _gp1_check = false;
 	var _gp2_check = false;
+	
 	if (_control_gp > gp_padr) {
 		var _control_gp_off = (_control_gp - gp_padr - 1);
 		_gp1_check = g.gp_released[@ 0][@ _control_gp_off];
@@ -228,9 +231,11 @@ function controls_check_released(_control, _protocol = "p1") {
 		_gp1_check = gamepad_button_check_released(0, _control_gp);
 		_gp2_check = gamepad_button_check_released(1, _control_gp);
 	}
+	
 	if (_protocol == "any") { return (_kb_check || _gp1_check); }
 	if (_protocol == "p2") { return (ss.controller ? (!g.second_controller ? _kb_check : _gp2_check) : _gp1_check); }
 	if (_protocol == "not p1") { return (ss.controller ? (_kb_check || _gp2_check) : _gp1_check); }
+	
 	return (!ss.controller ? _kb_check : _gp1_check);
 }
 
@@ -241,8 +246,8 @@ function reset_binds() {
 			right: vk_right,
 			up: vk_up,
 			down: vk_down,
-			interact: ord("Z"),
-			back: ord("X")
+			a: ord("Z"),
+			b: ord("X")
 		};
 	} else {
 		ss.gp_controls = {
@@ -250,8 +255,8 @@ function reset_binds() {
 			right: gp_stickl_r,
 			up: gp_stickl_u,
 			down: gp_stickl_d,
-			interact: gp_face1,
-			back: gp_face2
+			a: gp_face1,
+			b: gp_face2
 		};
 	}
 }
