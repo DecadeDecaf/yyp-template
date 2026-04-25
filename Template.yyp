@@ -23,9 +23,11 @@
   },
   "name":"Template",
   "resources":[
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_main","path":"objects/obj_main/obj_main.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"scr_data","path":"scripts/scr_data/scr_data.yy",},},
+    {"id":{"name":"scr_game","path":"scripts/scr_game/scr_game.yy",},},
     {"id":{"name":"scr_main","path":"scripts/scr_main/scr_main.yy",},},
     {"id":{"name":"scr_util","path":"scripts/scr_util/scr_util.yy",},},
   ],

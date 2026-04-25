@@ -14,6 +14,8 @@ function create_macros() {
 }
 
 function create_globals() {
+	g.desktop = (os_browser == browser_not_a_browser);
+	
 	g.fc = 0;
 	
 	g.g_cols = {
@@ -23,7 +25,7 @@ function create_globals() {
 	
 	#macro colors g.g_cols
 	
-	// global variables
+	create_game_globals();
 	
 	g.second_controller = false;
 	
@@ -162,8 +164,10 @@ function handle_restart() {
 }
 
 function handle_gameclose() {
-	var _esc = keyboard_check_pressed(vk_escape);
-	if (_esc) { game_end(); }
+	if (g.desktop) {
+		var _esc = keyboard_check_pressed(vk_escape);
+		if (_esc) { game_end(); }
+	}
 }
 
 function error(_struct) {
